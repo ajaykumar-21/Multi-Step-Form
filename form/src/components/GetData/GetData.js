@@ -5,11 +5,11 @@ function GetData() {
       name: "",
       email: "",
       phone: "",
-      AddressLine1: "",
-      AddressLine2: "",
-      City: "",
-      State: "",
-      Zip: "",
+      addressLine1: "",
+      addressLine2: "",
+      city: "",
+      state: "",
+      zip: "",
     };
   }
   return storedData;

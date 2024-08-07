@@ -13,3 +13,8 @@
   margin-top: 100px;
   box-shadow: 10px 15px 15px rgba(231, 228, 228, 0.972);
 }
+
+h1 {
+  color: rgba(90, 86, 86, 0.614);
+  text-shadow: 5px 5px rgba(231, 228, 228, 0.972);
+}

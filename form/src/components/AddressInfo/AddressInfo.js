@@ -8,7 +8,7 @@ function AddressInfo() {
   useEffect(() => {
     localStorage.setItem("values", JSON.stringify(values));
   }, [values]);
-  console.log(values.name, values.email, values.phone);
+
   return (
     <div>
       <Box component="form">
@@ -18,9 +18,9 @@ function AddressInfo() {
             <Input
               id="addressLine1"
               type="text"
-              value={values.AddressLine1}
+              value={values.addressLine1}
               onChange={(e) =>
-                setValues((prev) => ({ ...prev, AddressLine1: e.target.value }))
+                setValues((prev) => ({ ...prev, addressLine1: e.target.value }))
               }
               className="nameInput"
             />
@@ -28,11 +28,11 @@ function AddressInfo() {
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
             <InputLabel htmlFor="addressLine2">Address Line 2</InputLabel>
             <Input
-              id="emaddressLine2"
+              id="addressLine2"
               type="text"
-              value={values.AddressLine2}
+              value={values.addressLine2}
               onChange={(e) =>
-                setValues((prev) => ({ ...prev, AddressLine2: e.target.value }))
+                setValues((prev) => ({ ...prev, addressLine2: e.target.value }))
               }
             />
           </FormControl>
@@ -41,9 +41,9 @@ function AddressInfo() {
             <Input
               id="city"
               type="text"
-              value={values.City}
+              value={values.city}
               onChange={(e) =>
-                setValues((prev) => ({ ...prev, City: e.target.value }))
+                setValues((prev) => ({ ...prev, city: e.target.value }))
               }
             />
           </FormControl>
@@ -52,9 +52,20 @@ function AddressInfo() {
             <Input
               id="state"
               type="text"
-              value={values.State}
+              value={values.state}
               onChange={(e) =>
-                setValues((prev) => ({ ...prev, State: e.target.value }))
+                setValues((prev) => ({ ...prev, state: e.target.value }))
+              }
+            />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
+            <InputLabel htmlFor="zip">Zip</InputLabel>
+            <Input
+              id="zip"
+              type="text"
+              value={values.zip}
+              onChange={(e) =>
+                setValues((prev) => ({ ...prev, zip: e.target.value }))
               }
             />
           </FormControl>
