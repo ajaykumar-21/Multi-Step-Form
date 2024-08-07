@@ -1,5 +1,5 @@
 import "./App.css";
-import HorizontalStepper from "./components/Stepper/Stepper";
+import HorizontalStepper from "./components/Stepper/HorizontalStepper";
 
 function App() {
   return (
