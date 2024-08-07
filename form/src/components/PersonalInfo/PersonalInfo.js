@@ -1,25 +1,18 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormControl, InputLabel, Input, Box } from "@mui/material";
 import "./PersonalInfo.css";
+import GetData from "../GetData/GetData";
 
 function PersonalInfo() {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
-  console.log(values.name, values.email, values.phone);
+  const [values, setValues] = useState(GetData);
+
+  useEffect(() => {
+    localStorage.setItem("values", JSON.stringify(values));
+  }, [values]);
+
   return (
     <div>
-      <Box
-        component="form"
-        // sx={{
-        //   "& > :not(style)": { m: 1 },
-        // }}
-        // noValidate
-        // autoComplete="off"
-      >
+      <Box component="form">
         <FormControl variant="standard">
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
             <InputLabel htmlFor="name">Name</InputLabel>

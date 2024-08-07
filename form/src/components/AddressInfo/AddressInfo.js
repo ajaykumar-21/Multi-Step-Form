@@ -1,15 +1,13 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormControl, InputLabel, Input, Box } from "@mui/material";
+import GetData from "../GetData/GetData";
 
 function AddressInfo() {
-  const [values, setValues] = useState({
-    AddressLine1: "",
-    AddressLine2: "",
-    City: "",
-    State: "",
-    Zip: "",
-  });
+  const [values, setValues] = useState(GetData);
+
+  useEffect(() => {
+    localStorage.setItem("values", JSON.stringify(values));
+  }, [values]);
   console.log(values.name, values.email, values.phone);
   return (
     <div>
