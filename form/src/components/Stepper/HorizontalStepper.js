@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
+import AddressInfo from "../AddressInfo/AddressInfo";
 import "./HorizontalStepper.css";
 
 const steps = ["Personal Information", "Address Information", "Confirmation"];
@@ -94,6 +95,7 @@ export default function HorizontalStepper() {
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1, width: "50vw" }}>
               {activeStep === 0 && <PersonalInfo />}
+              {activeStep === 1 && <AddressInfo />}
             </Typography>
             <Box
               sx={{

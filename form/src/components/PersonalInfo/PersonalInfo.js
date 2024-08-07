@@ -1,10 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { FormControl, InputLabel, Input, Box } from "@mui/material";
-// import Box from "@mui/material/Box";
-// import FormControl from "@mui/material/FormControl";
-// import Input from "@mui/material/Input";
-// import InputLabel from "@mui/material/InputLabel";
+import "./PersonalInfo.css";
 
 function PersonalInfo() {
   const [values, setValues] = useState({
@@ -17,11 +14,11 @@ function PersonalInfo() {
     <div>
       <Box
         component="form"
-        sx={{
-          "& > :not(style)": { m: 1 },
-        }}
-        noValidate
-        autoComplete="off"
+        // sx={{
+        //   "& > :not(style)": { m: 1 },
+        // }}
+        // noValidate
+        // autoComplete="off"
       >
         <FormControl variant="standard">
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
@@ -33,6 +30,7 @@ function PersonalInfo() {
               onChange={(e) =>
                 setValues((prev) => ({ ...prev, name: e.target.value }))
               }
+              className="nameInput"
             />
           </FormControl>
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
