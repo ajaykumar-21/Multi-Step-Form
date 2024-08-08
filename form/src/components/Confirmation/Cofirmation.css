@@ -1,0 +1,15 @@
+.confirmationPage-container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 200px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0;
+  font-size: large;
+  font-family: sans-serif;
+  color: #333;
+}

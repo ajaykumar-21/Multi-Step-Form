@@ -22,7 +22,7 @@ function AddressInfo() {
               onChange={(e) =>
                 setValues((prev) => ({ ...prev, addressLine1: e.target.value }))
               }
-              className="nameInput"
+              sx={{ width: "500px" }}
             />
           </FormControl>
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>

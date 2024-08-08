@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import AddressInfo from "../AddressInfo/AddressInfo";
+import Confirmation from "../Confirmation/Confirmation";
+// import { validate } from "../PersonalInfo/PersonalInfo";
 import "./HorizontalStepper.css";
 
 const steps = ["Personal Information", "Address Information", "Confirmation"];
@@ -30,6 +32,7 @@ export default function HorizontalStepper() {
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
+    // validate();
   };
 
   const handleBack = () => {
@@ -38,6 +41,7 @@ export default function HorizontalStepper() {
 
   const handleReset = () => {
     setActiveStep(0);
+    localStorage.removeItem("values");
   };
 
   return (
@@ -60,19 +64,31 @@ export default function HorizontalStepper() {
         </Stepper>
         {activeStep === steps.length ? (
           <React.Fragment>
+            <Typography
+              sx={{
+                mt: 2,
+                mb: 1,
+                color: "green",
+                fontWeight: "bolder",
+                fontSize: "30px",
+              }}
+            >
+              Thank You!
+            </Typography>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
+              Form has been succesfully submitted.
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleReset}>Reset</Button>
+              <Button onClick={handleReset}>Finish</Button>
             </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1, width: "50vw" }}>
-              {activeStep === 0 && <PersonalInfo />}
+              {activeStep === 0 && <PersonalInfo activeStep={activeStep} />}
               {activeStep === 1 && <AddressInfo />}
+              {activeStep === 2 && <Confirmation />}
             </Typography>
             <Box
               sx={{
@@ -91,14 +107,12 @@ export default function HorizontalStepper() {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              {/* {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
-              </Button>
-            )} */}
-
-              <Button onClick={handleNext}>
-                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              <Button
+                onClick={() => {
+                  handleNext();
+                }}
+              >
+                {activeStep === steps.length - 1 ? "Submit" : "Next"}
               </Button>
             </Box>
           </React.Fragment>

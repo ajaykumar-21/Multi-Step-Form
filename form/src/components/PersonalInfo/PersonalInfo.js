@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FormControl, InputLabel, Input, Box } from "@mui/material";
 import "./PersonalInfo.css";
 import GetData from "../GetData/GetData";
+// import validate from "../Validate/validate";
 
-function PersonalInfo() {
+function PersonalInfo({ activeStep }) {
   const [values, setValues] = useState(GetData);
+  // console.log(values);
+  // const [error, setError] = useState("");
 
   useEffect(() => {
     localStorage.setItem("values", JSON.stringify(values));
@@ -12,6 +15,7 @@ function PersonalInfo() {
 
   return (
     <div>
+      {/* <validate activeStep={activeStep} values={values} /> */}
       <Box component="form">
         <FormControl variant="standard">
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
@@ -23,7 +27,7 @@ function PersonalInfo() {
               onChange={(e) =>
                 setValues((prev) => ({ ...prev, name: e.target.value }))
               }
-              className="nameInput"
+              sx={{ width: "500px" }}
             />
           </FormControl>
           <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
