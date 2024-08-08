@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { FormControl, InputLabel, Input, Box } from "@mui/material";
+import React, { useEffect } from "react";
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  Box,
+  FormHelperText,
+} from "@mui/material";
 import "./PersonalInfo.css";
-import GetData from "../GetData/GetData";
-// import validate from "../Validate/validate";
 
-function PersonalInfo({ activeStep }) {
-  const [values, setValues] = useState(GetData);
-  // console.log(values);
-  // const [error, setError] = useState("");
+function PersonalInfo({ values, setValues, errors }) {
 
   useEffect(() => {
     localStorage.setItem("values", JSON.stringify(values));
@@ -15,10 +16,13 @@ function PersonalInfo({ activeStep }) {
 
   return (
     <div>
-      {/* <validate activeStep={activeStep} values={values} /> */}
       <Box component="form">
         <FormControl variant="standard">
-          <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
+          <FormControl
+            variant="standard"
+            sx={{ marginBottom: "15px" }}
+            error={!!errors.name}
+          >
             <InputLabel htmlFor="name">Name</InputLabel>
             <Input
               id="name"
@@ -29,8 +33,13 @@ function PersonalInfo({ activeStep }) {
               }
               sx={{ width: "500px" }}
             />
+            {errors.name && <FormHelperText>{errors.name}</FormHelperText>}
           </FormControl>
-          <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
+          <FormControl
+            variant="standard"
+            sx={{ marginBottom: "15px" }}
+            error={!!errors.email}
+          >
             <InputLabel htmlFor="email">Email</InputLabel>
             <Input
               id="email"
@@ -40,8 +49,13 @@ function PersonalInfo({ activeStep }) {
                 setValues((prev) => ({ ...prev, email: e.target.value }))
               }
             />
+            {errors.email && <FormHelperText>{errors.email}</FormHelperText>}
           </FormControl>
-          <FormControl variant="standard" sx={{ marginBottom: "15px" }}>
+          <FormControl
+            variant="standard"
+            sx={{ marginBottom: "15px" }}
+            error={!!errors.phone}
+          >
             <InputLabel htmlFor="phone">Phone</InputLabel>
             <Input
               id="phone"
@@ -51,6 +65,7 @@ function PersonalInfo({ activeStep }) {
                 setValues((prev) => ({ ...prev, phone: e.target.value }))
               }
             />
+            {errors.phone && <FormHelperText>{errors.phone}</FormHelperText>}
           </FormControl>
         </FormControl>
       </Box>

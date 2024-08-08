@@ -1,21 +1,18 @@
 import React from "react";
-import GetData from "../GetData/GetData";
 import "./Cofirmation.css";
 
-function Confirmation() {
-  const data = GetData();
-  console.log(data);
+function Confirmation({ values }) {
   return (
     <div className="confirmationPage-container">
       <div className="wrapper">
-        <p>Name: {data.name}</p>
-        <p>Email: {data.email}</p>
-        <p>Phone: {data.phone}</p>
-        <p>Address 1: {data.addressLine1}</p>
-        <p>Address 2: {data.addressLine2}</p>
-        <p>City: {data.city}</p>
-        <p>State: {data.state}</p>
-        <p>Zip: {data.zip}</p>
+        <p>Name: {values.name}</p>
+        <p>Email: {values.email}</p>
+        <p>Phone: {values.phone}</p>
+        <p>Address 1: {values.addressLine1}</p>
+        <p>Address 2: {values.addressLine2}</p>
+        <p>City: {values.city}</p>
+        <p>State: {values.state}</p>
+        <p>Zip: {values.zip}</p>
       </div>
     </div>
   );
