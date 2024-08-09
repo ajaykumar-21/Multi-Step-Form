@@ -23,7 +23,7 @@ This is a React application for a multi-step form using Material-UI. The form co
 
 - npm install
 
-  3.Run the application:
+3.Run the application:
 
 - npm start
 
@@ -33,9 +33,9 @@ How to Use the Multi-Step Form
 
 1.Navigate through steps: The form is divided into three steps:
 
--Step 1: Personal Information
--Step 2: Address Information
--Step 3: Confirmation
+    - Step 1: Personal Information
+    - Step 2: Address Information
+    - Step 3: Confirmation
 
 2. Validation: Each step includes validation. You cannot proceed to the next step unless all required fields are filled out.
 3. Submit the form: On the final confirmation step, click Submit to submit the form. A message will display indicating successful submission.
