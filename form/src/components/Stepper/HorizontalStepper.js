@@ -68,13 +68,13 @@ export default function HorizontalStepper() {
     <Box className="conatiner">
       <Box className="sub-container">
         <h1>MULTI STEP FORM</h1>
-        <Stepper activeStep={activeStep} sx={{ width: "50vw" }}>
+        <Stepper activeStep={activeStep} className="stepper">
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
             return (
               <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
+                <StepLabel {...labelProps} className="stepLabel">{label}</StepLabel>
               </Step>
             );
           })}

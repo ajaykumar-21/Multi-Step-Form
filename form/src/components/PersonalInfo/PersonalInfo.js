@@ -31,7 +31,7 @@ function PersonalInfo({ values, setValues, errors }) {
               onChange={(e) =>
                 setValues((prev) => ({ ...prev, name: e.target.value }))
               }
-              sx={{ width: "500px" }}
+              className="inputField"
             />
             {errors.name && <FormHelperText>{errors.name}</FormHelperText>}
           </FormControl>
