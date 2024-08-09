@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   FormControl,
   InputLabel,
@@ -6,13 +6,9 @@ import {
   Box,
   FormHelperText,
 } from "@mui/material";
+import "./AddressInfo.css";
 
 function AddressInfo({ values, setValues, errors }) {
-
-  useEffect(() => {
-    localStorage.setItem("values", JSON.stringify(values));
-  }, [values]);
-
   return (
     <div>
       <Box component="form">
@@ -30,7 +26,7 @@ function AddressInfo({ values, setValues, errors }) {
               onChange={(e) =>
                 setValues((prev) => ({ ...prev, addressLine1: e.target.value }))
               }
-              sx={{ width: "500px" }}
+              className="inputField"
             />
             {errors.addressLine1 && (
               <FormHelperText>{errors.addressLine1}</FormHelperText>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Box,
   Stepper,
@@ -21,37 +21,48 @@ export default function HorizontalStepper() {
   const [errors, setErrors] = useState({});
   const validate = useRef(() => true);
 
+  useEffect(() => {
+    localStorage.setItem("values", JSON.stringify(values)); // Save the current form values to localStorage so that they persist across page reloads or user navigation
+  }, [values]);
+
+  // Function to validate form fields based on the current step in the form
   const validateFields = () => {
     const newErrors = {};
+    // Validation for step 0 (Personal Information)
     if (activeStep === 0) {
-      if (!values.name) newErrors.name = "Name is required";
-      if (!values.email) newErrors.email = "Email is required";
-      if (!values.phone) newErrors.phone = "Phone is required";
+      if (!values.name) newErrors.name = "Name is required"; // Check if name is empty
+      if (!values.email) newErrors.email = "Email is required"; // Check if email is empty
+      if (!values.phone) newErrors.phone = "Phone is required"; // Check if phone number is empty
+
+      // Validation for step 1 (Address Information)
     } else if (activeStep === 1) {
-      if (!values.addressLine1) newErrors.addressLine1 = "Address1 is required";
-      if (!values.addressLine2) newErrors.addressLine2 = "Email is required";
-      if (!values.city) newErrors.city = "Phone is required";
-      if (!values.state) newErrors.state = "Phone is required";
-      if (!values.zip) newErrors.zip = "Phone is required";
+      if (!values.addressLine1) newErrors.addressLine1 = "Address1 is required"; // Check if Address Line 1 is empty
+      if (!values.addressLine2) newErrors.addressLine2 = "Email is required"; // Check if Address Line 2 is empty
+      if (!values.city) newErrors.city = "Phone is required"; // Check if city is empty
+      if (!values.state) newErrors.state = "Phone is required"; // Check if state is empty
+      if (!values.zip) newErrors.zip = "Phone is required"; // Check if ZIP code is empty
     }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(newErrors); // Update the errors state with the newly found errors
+    return Object.keys(newErrors).length === 0; // Return true if there are no errors, false otherwise
   };
-  validate.current = validateFields;
+  validate.current = validateFields; // Assign the validateFields function to the current reference for validation
 
   const handleNext = () => {
+    // Call the current validation function to check if the current step's data is valid
     if (validate.current()) {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      setActiveStep((prevActiveStep) => prevActiveStep + 1); // If the data is valid, move to the next step by incrementing the activeStep state
     }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setActiveStep((prevActiveStep) => prevActiveStep - 1); // Decrement the activeStep state to move back to the previous step
   };
 
   const handleReset = () => {
-    setActiveStep(0);
-    localStorage.removeItem("values");
+    setActiveStep(0); // Reset the activeStep state to 0, which will take the user back to the first step of the form
+    localStorage.removeItem("values"); // Remove the saved form data from localStorage
+
+    // Reset the form values to their initial state with empty strings
     setValues({
       name: "",
       email: "",
@@ -74,7 +85,9 @@ export default function HorizontalStepper() {
             const labelProps = {};
             return (
               <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps} className="stepLabel">{label}</StepLabel>
+                <StepLabel {...labelProps} className="stepLabel">
+                  {label}
+                </StepLabel>
               </Step>
             );
           })}

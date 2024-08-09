@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   FormControl,
   InputLabel,
@@ -9,11 +9,6 @@ import {
 import "./PersonalInfo.css";
 
 function PersonalInfo({ values, setValues, errors }) {
-
-  useEffect(() => {
-    localStorage.setItem("values", JSON.stringify(values));
-  }, [values]);
-
   return (
     <div>
       <Box component="form">
