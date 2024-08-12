@@ -127,7 +127,7 @@ export default function HorizontalStepper() {
   return (
     <Box className="conatiner">
       <Box className="sub-container">
-        <h1>MULTI STEP FORM</h1>
+      <h1>Multi-Step Form</h1>
         <Stepper activeStep={activeStep} className="stepper">
           {steps.map((label, index) => {
             const stepProps = {};

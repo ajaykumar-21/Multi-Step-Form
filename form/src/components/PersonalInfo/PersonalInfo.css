@@ -1,6 +1,49 @@
-.inputField {
-  width: 30vw;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  /* background-color: #f9f9f9; */
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  display: block;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  margin-top: 5px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.error-label {
+  color: #d9534f;
+}
+
+.input-error {
+  border-color: #d9534f;
+}
+
+.error-message {
+  color: #d9534f;
+  font-size: 0.875em;
+  margin-top: 5px;
 }
