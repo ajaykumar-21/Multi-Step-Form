@@ -1,15 +1,27 @@
 .confirmationPage-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
-  width: 500px;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 8px 0;
-  font-size: large;
-  font-family: sans-serif;
+  max-width: 600px;
+  width: 100%;
+}
+
+.info-group {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 5px 5px whitesmoke;
+}
+
+.info-label {
+  font-weight: bold;
   color: #333;
+  flex-basis: 40%;
+}
+
+.info-value {
+  font-size: 1em;
+  color: #555;
 }
